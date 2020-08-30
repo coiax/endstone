@@ -1,3 +1,9 @@
+import { gc } from "./gc";
+
 export const loop = () => {
-    console.log(_.random());
+    if (Game.cpu.bucket > 5000) {
+        Game.cpu.generatePixel();
+    }
+
+    gc();
 };

@@ -1,4 +1,5 @@
 import typescript from "@rollup/plugin-typescript";
+import screeps from "rollup-plugin-screeps";
 
 export default {
     input: "src/main.ts",
@@ -7,5 +8,5 @@ export default {
         format: "cjs",
         sourcemap: true,
     },
-    plugins: [typescript()],
+    plugins: [typescript(), screeps({ configFile: "./screeps.json" })],
 };

@@ -216,3 +216,11 @@ $RECYCLE.BIN/
 # .pnp.*
 
 # End of https://www.toptal.com/developers/gitignore/api/node,vim,linux,osx,windows,yarn
+
+
+########
+# Project Specific
+########
+
+# Contains authentication details
+screeps.json
