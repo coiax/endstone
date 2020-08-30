@@ -1,1 +1,3 @@
-export const loop = () => {};
+export const loop = () => {
+    console.log(_.random());
+};
