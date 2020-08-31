@@ -13,7 +13,7 @@ let config = {
     plugins: [typescript()],
 };
 
-if (process.env.UPLOAD) {
+if (process.env.UPLOAD === "true") {
     config.plugins.push(screeps({ configFile: "./screeps.json" }));
 }
 
