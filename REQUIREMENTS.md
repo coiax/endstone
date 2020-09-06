@@ -1,2 +1,2 @@
-Node 14.x
+Node 12.x
 Yarn

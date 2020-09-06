@@ -2,6 +2,8 @@
 
 import typescript from "@rollup/plugin-typescript";
 import screeps from "rollup-plugin-screeps";
+import resolve from "@rollup/plugin-node-resolve";
+import commonjs from "@rollup/plugin-commonjs";
 
 let config = {
     input: "src/main.ts",
@@ -10,7 +12,7 @@ let config = {
         format: "cjs",
         sourcemap: true,
     },
-    plugins: [typescript()],
+    plugins: [resolve(), commonjs(), typescript()],
 };
 
 if (process.env.UPLOAD === "true") {

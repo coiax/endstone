@@ -6,12 +6,12 @@ import multi from "@rollup/plugin-multi-entry";
 import commonjs from "@rollup/plugin-commonjs";
 
 let config = {
-    external: ["lodash", "chai", "sinon"],
-    input: "test/unit/**/*.test.ts",
+    external: ["lodash", "chai"],
+    input: "test/integration/**/*.test.ts",
     output: {
-        file: "dist/test-unit.js",
-        sourcemap: true,
+        file: "dist/test-integration.js",
         format: "cjs",
+        sourcemap: true,
     },
     plugins: [
         resolve(),
