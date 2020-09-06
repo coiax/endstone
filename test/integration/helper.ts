@@ -38,9 +38,11 @@ class IntegrationTestHelper {
             modules,
         });
 
-        // @ts-ignore
+        // Emit console logs when internal scripts use the console
         this.player.on("console", (logs, results, userid, username) => {
-            _.each(logs, (line) => console.log(`[console|${username}]`, line));
+            for (let line of logs) {
+                console.log(`[console|${username}]`, line);
+            }
         });
 
         // Start server

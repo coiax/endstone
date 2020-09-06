@@ -12,7 +12,7 @@ let config = {
         format: "cjs",
         sourcemap: true,
     },
-    plugins: [resolve(), commonjs(), typescript()],
+    plugins: [resolve(), commonjs(), typescript({ exclude: ["test/**"] })],
 };
 
 if (process.env.UPLOAD === "true") {
