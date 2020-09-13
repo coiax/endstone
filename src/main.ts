@@ -15,6 +15,10 @@ export const loop = () => {
 
     for (let creep_name in Game.creeps) {
         let creep = Game.creeps[creep_name];
+        if (!creep.memory.job_name) {
+            creep.memory.job_name = "bootstrap_harvester";
+        }
+
         let job = idle_job;
         if (creep.memory.job_name === "bootstrap_harvester") {
             job = bootstrap_harvester_job;

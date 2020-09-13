@@ -1,6 +1,6 @@
 import Ajv from "ajv";
 
-const ajv = new Ajv();
+const ajv = new Ajv({ logger: false });
 const job_memory_schema = {
     $schema: "http://json-schema.org/draft-07/schema#",
     type: "object",
