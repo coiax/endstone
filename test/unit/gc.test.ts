@@ -2,27 +2,19 @@ import { assert } from "chai";
 
 import { gc } from "../../src/gc";
 
-let game_template: Game = {
-    creeps: {},
-    spawns: {},
-} as Game;
-
-let memory_template: Memory = {
-    creeps: {},
-    spawns: {},
-} as Memory;
+import { game_stub, memory_stub } from "./stubs";
 
 describe("garbarge-collection", function () {
     beforeEach(function () {
         // @ts-ignore assigning to global object
-        global.Game = _.cloneDeep(game_template);
+        global.Game = _.cloneDeep(game_stub);
         // @ts-ignore
-        global.Memory = _.cloneDeep(memory_template);
+        global.Memory = _.cloneDeep(memory_stub);
     });
     it("should delete creep Memory when creeps are not present", function () {
         let creep_name = "bob";
 
-        Memory.creeps[creep_name] = { job: "scout" };
+        Memory.creeps[creep_name] = { job_name: "scout" };
 
         gc();
 
@@ -35,7 +27,7 @@ describe("garbarge-collection", function () {
         let creep_name = "betty";
 
         Game.creeps[creep_name] = { name: creep_name } as Creep;
-        Memory.creeps[creep_name] = { job: "idler" };
+        Memory.creeps[creep_name] = { job_name: "idler" };
 
         gc();
 

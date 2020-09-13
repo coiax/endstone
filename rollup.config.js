@@ -4,6 +4,7 @@ import typescript from "@rollup/plugin-typescript";
 import screeps from "rollup-plugin-screeps";
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
+import json from "@rollup/plugin-json";
 
 let config = {
     input: "src/main.ts",
@@ -12,7 +13,12 @@ let config = {
         format: "cjs",
         sourcemap: true,
     },
-    plugins: [resolve(), commonjs(), typescript({ exclude: ["test/**"] })],
+    plugins: [
+        resolve(),
+        commonjs(),
+        typescript({ exclude: ["test/**"] }),
+        json(),
+    ],
 };
 
 if (process.env.UPLOAD === "true") {
